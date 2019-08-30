@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>XINCHEN</title>
+  <title>Hello World | XINCHEN</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="XINCHEN">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="Hello blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hello World">
+<meta property="og:url" content="http://yoursite.com/2019/08/30/hello-blog/index.html">
 <meta property="og:site_name" content="XINCHEN">
+<meta property="og:description" content="Hello blog">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-30T13:29:52.861Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XINCHEN">
+<meta name="twitter:title" content="Hello World">
+<meta name="twitter:description" content="Hello blog">
   
     <link rel="alternative" href="/atom.xml" title="XINCHEN" type="application/atom+xml">
   
@@ -150,160 +154,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-快速排序、归并排序详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-hello-blog" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/30/快速排序、归并排序详解/">快速排序和归并排序详解</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/30/快速排序、归并排序详解/" class="archive-article-date">
-  	<time datetime="2019-08-30T13:30:00.684Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##归并排序<br>时间复杂度（nlogn）），利用分治思想<br>先将数组反复一分为二，直到每个数组中只有一个元素，然后是治的过程，治其实是将有序的数组合并成更大有序数组的过程，从数组最小的开始，两两比较按顺序合并，直至合并的数组为原始数组大小</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">// 融合两个有序数组，这里实际上是将数组 arr 分为两个数组</span><br><span class="line"><span class="keyword">function</span> mergeArray(arr, first, mid, last, temp) &#123;</span><br><span class="line">	<span class="built_in">let</span> i = first; </span><br><span class="line"> 	<span class="built_in">let</span> m = mid;</span><br><span class="line">  	<span class="built_in">let</span> j = mid+1;</span><br><span class="line">	<span class="built_in">let</span> n = last;</span><br><span class="line">  	<span class="built_in">let</span> k = 0;</span><br><span class="line">  	<span class="keyword">while</span>(i&lt;=m &amp;&amp; j&lt;=n) &#123;</span><br><span class="line">    	<span class="keyword">if</span>(arr[i] &lt; arr[j]) &#123;</span><br><span class="line">     	 temp[k++] = arr[i++];</span><br><span class="line">   	 	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">     		temp[k++] = arr[j++];</span><br><span class="line">    	&#125;</span><br><span class="line"> 	&#125;</span><br><span class="line">  	<span class="keyword">while</span>(i&lt;=m) &#123;</span><br><span class="line">    	temp[k++] = arr[i++];</span><br><span class="line"> 	&#125;</span><br><span class="line">  	<span class="keyword">while</span>(j&lt;=n) &#123;</span><br><span class="line">    	temp[k++] = arr[j++];</span><br><span class="line">  	&#125; </span><br><span class="line">  	<span class="keyword">for</span>(<span class="built_in">let</span> l=0; l&lt;k; l++) &#123;</span><br><span class="line">    	arr[first+l] = temp[l];</span><br><span class="line">  	&#125;</span><br><span class="line">  	<span class="built_in">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line">// 递归实现归并排序</span><br><span class="line"><span class="keyword">function</span> mergeSort(arr, first, last, temp) &#123;</span><br><span class="line">  	<span class="keyword">if</span>(first&lt;last) &#123;</span><br><span class="line">    	<span class="built_in">let</span> mid = Math.foor((first+last)/2);</span><br><span class="line">    	mergeSort(arr, first, mid, temp);    // 左子数组有序</span><br><span class="line">    	mergeSort(arr, mid+1, last, temp);   // 右子数组有序</span><br><span class="line">    	arr = mergeArray(arr, first, mid, last, temp);  </span><br><span class="line">  	&#125;</span><br><span class="line">  	<span class="built_in">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// example</span><br><span class="line"><span class="built_in">let</span> arr = [10, 3, 1, 5, 11, 2, 0, 6, 3];</span><br><span class="line"><span class="built_in">let</span> temp = new Array();</span><br><span class="line"><span class="built_in">let</span> SortedArr = mergeSort(arr, 0 ,arr.length-1, temp);</span><br><span class="line">alert(SortedArr);</span><br></pre></td></tr></table></figure>
-
-<p>##快速排序<br>时间复杂度（nlogn）,最坏为n平方）挖坑填数法+分治法<br>实现原理是先从数组中取出一个数作为基数，一般是取第一个，把数组中比基数小数的放在左边，比基数大的放在右边，然后使用分治思想，对左右区间重复上述步骤直到各区间只有一个数</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">//返回调整后基准数的位置</span><br><span class="line"><span class="keyword">function</span> quick_sort(s, l, r)&#123;</span><br><span class="line">    <span class="keyword">if</span> (l &lt; r)&#123;</span><br><span class="line">        //Swap(s[l], s[(l + r) / 2]); </span><br><span class="line">        //将中间的这个数和第一个数交换 参见注1</span><br><span class="line">        var i = l, j = r, x = s[l];</span><br><span class="line">        <span class="keyword">while</span> (i &lt; j)&#123;</span><br><span class="line">            // 从右向左找第一个小于x的数</span><br><span class="line">            <span class="keyword">while</span>(i &lt; j &amp;&amp; s[j] &gt;= x) &#123;</span><br><span class="line">                j--;  </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(i &lt; j) &#123;</span><br><span class="line">                s[i++] = s[j];</span><br><span class="line">            &#125;</span><br><span class="line">            // 从左向右找第一个大于等于x的数</span><br><span class="line">            <span class="keyword">while</span>(i &lt; j &amp;&amp; s[i] &lt; x)&#123;</span><br><span class="line">                i++;  </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(i &lt; j) &#123;</span><br><span class="line">                s[j--] = s[i];</span><br><span class="line">            &#125;   </span><br><span class="line">        &#125;</span><br><span class="line">        s[i] = x;</span><br><span class="line">        quick_sort(s, l, i - 1); // 递归调用 </span><br><span class="line">        quick_sort(s, i + 1, r);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">quick_sort1</span></span>()&#123;</span><br><span class="line">    var s = [1,5,3,7,9,10,51];</span><br><span class="line">    var l = 0;</span><br><span class="line">    var r = 6;</span><br><span class="line">    quick_sort(s, l, r);</span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">quick_sort1();</span><br></pre></td></tr></table></figure>
-
-<p>###快速排序和归并的区别就在于它正好和递归的排序反过来。<br>快速排序先排序再递归细分，排序是从上到下的。归并排序先递归细分再排序，排序是从下到上的。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/30/快速排序、归并排序详解/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/30/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/30/hello-world/" class="archive-article-date">
-  	<time datetime="2019-08-30T12:18:25.080Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/30/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/30/hello-blog/">Hello World</a>
+    <h1 class="article-title" itemprop="name">
+      Hello World
     </h1>
   
 
@@ -321,6 +179,27 @@
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -328,16 +207,79 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/30/hello-blog/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/30/hello-blog/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/08/30/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -357,8 +299,14 @@
 
 
 
+  
+  
+  
 
   
+
+  
+
   
 
 
@@ -381,8 +329,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
