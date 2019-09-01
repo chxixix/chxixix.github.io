@@ -152,33 +152,95 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-快速排序、归并排序详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-二分查找" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/30/快速排序、归并排序详解/">快速排序和归并排序详解</a>
+      <a class="article-title" href="/2019/09/02/二分查找/">二分查找详解</a>
     </h1>
   
 
         
-        <a href="/2019/08/30/快速排序、归并排序详解/" class="archive-article-date">
-  	<time datetime="2019-08-30T13:30:00.684Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-30</time>
+        <a href="/2019/09/02/二分查找/" class="archive-article-date">
+  	<time datetime="2019-09-02T11:10:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p>时间复杂度（nlogn）），利用分治思想<br>先将数组反复一分为二，直到每个数组中只有一个元素，然后是治的过程，治其实是将有序的数组合并成更大有序数组的过程，从数组最小的开始，两两比较按顺序合并，直至合并的数组为原始数组大小</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">// 融合两个有序数组，这里实际上是将数组 arr 分为两个数组</span><br><span class="line"><span class="keyword">function</span> mergeArray(arr, first, mid, last, temp) &#123;</span><br><span class="line">	<span class="built_in">let</span> i = first; </span><br><span class="line"> 	<span class="built_in">let</span> m = mid;</span><br><span class="line">  	<span class="built_in">let</span> j = mid+1;</span><br><span class="line">	<span class="built_in">let</span> n = last;</span><br><span class="line">  	<span class="built_in">let</span> k = 0;</span><br><span class="line">  	<span class="keyword">while</span>(i&lt;=m &amp;&amp; j&lt;=n) &#123;</span><br><span class="line">    	<span class="keyword">if</span>(arr[i] &lt; arr[j]) &#123;</span><br><span class="line">     	 temp[k++] = arr[i++];</span><br><span class="line">   	 	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">     		temp[k++] = arr[j++];</span><br><span class="line">    	&#125;</span><br><span class="line"> 	&#125;</span><br><span class="line">  	<span class="keyword">while</span>(i&lt;=m) &#123;</span><br><span class="line">    	temp[k++] = arr[i++];</span><br><span class="line"> 	&#125;</span><br><span class="line">  	<span class="keyword">while</span>(j&lt;=n) &#123;</span><br><span class="line">    	temp[k++] = arr[j++];</span><br><span class="line">  	&#125; </span><br><span class="line">  	<span class="keyword">for</span>(<span class="built_in">let</span> l=0; l&lt;k; l++) &#123;</span><br><span class="line">    	arr[first+l] = temp[l];</span><br><span class="line">  	&#125;</span><br><span class="line">  	<span class="built_in">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line">// 递归实现归并排序</span><br><span class="line"><span class="keyword">function</span> mergeSort(arr, first, last, temp) &#123;</span><br><span class="line">  	<span class="keyword">if</span>(first&lt;last) &#123;</span><br><span class="line">    	<span class="built_in">let</span> mid = Math.foor((first+last)/2);</span><br><span class="line">    	mergeSort(arr, first, mid, temp);    // 左子数组有序</span><br><span class="line">    	mergeSort(arr, mid+1, last, temp);   // 右子数组有序</span><br><span class="line">    	arr = mergeArray(arr, first, mid, last, temp);  </span><br><span class="line">  	&#125;</span><br><span class="line">  	<span class="built_in">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// example</span><br><span class="line"><span class="built_in">let</span> arr = [10, 3, 1, 5, 11, 2, 0, 6, 3];</span><br><span class="line"><span class="built_in">let</span> temp = new Array();</span><br><span class="line"><span class="built_in">let</span> SortedArr = mergeSort(arr, 0 ,arr.length-1, temp);</span><br><span class="line">alert(SortedArr);</span><br></pre></td></tr></table></figure>
+        <h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><p>是不稳定算法（时间复杂度（logn）最坏,令n/2^k = 1。得k=logn，最好o(1)）</p>
+<h3 id="二分查找原理"><a href="#二分查找原理" class="headerlink" title="二分查找原理"></a>二分查找原理</h3><p>二分查找也称折半查找，在给定的有序数组中，比如是从小到大排序，寻找目标值的位置，把数组对半一分为二，将数组中间值和目标值比较，如果中间值比目标值小，则舍去数组左半边部分，反之舍去右半边，剩下的部分重复折半过程，直至找到目标值。</p>
+<p>二分查找通常比顺序查找更好，但对于一些大型的列表，排序一次可能是非常耗费，<br>所以顺序查找可能是比较好的选择。</p>
+<h3 id="js代码实现"><a href="#js代码实现" class="headerlink" title="js代码实现"></a>js代码实现</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> binary_search(arr, low, high, key)&#123;</span><br><span class="line">    <span class="keyword">if</span>(low &gt; high)</span><br><span class="line">    <span class="built_in">return</span> -1;</span><br><span class="line">    var mid = parseInt((high+low)/2);</span><br><span class="line">    <span class="keyword">if</span>(arr[mid] == key)&#123;</span><br><span class="line">        <span class="built_in">return</span> mid;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(arr[mid] &gt; key)&#123;</span><br><span class="line">        high = mid-1;</span><br><span class="line">        <span class="built_in">return</span> binary_search(arr,low, high, key);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(arr[mid] &lt; key)&#123;</span><br><span class="line">        low = mid+1;</span><br><span class="line">        <span class="built_in">return</span> binary_search(arr, low, high, key);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var arr = [1, 2, 3, 4, 5, 6, 7, 10, 11, 12, 18];</span><br><span class="line">var result = binary_search(arr, 0, 12, 10);</span><br><span class="line">console.log(result);</span><br></pre></td></tr></table></figure>
+      
 
-<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>时间复杂度（nlogn）,最坏为n平方）挖坑填数法+分治法<br>实现原理是先从数组中取出一个数作为基数，一般是取第一个，把数组中比基数小数的放在左边，比基数大的放在右边，然后使用分治思想，对左右区间重复上述步骤直到各区间只有一个数</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">//返回调整后基准数的位置</span><br><span class="line"><span class="keyword">function</span> quick_sort(s, l, r)&#123;</span><br><span class="line">    <span class="keyword">if</span> (l &lt; r)&#123;</span><br><span class="line">        //Swap(s[l], s[(l + r) / 2]); </span><br><span class="line">        //将中间的这个数和第一个数交换 参见注1</span><br><span class="line">        var i = l, j = r, x = s[l];</span><br><span class="line">        <span class="keyword">while</span> (i &lt; j)&#123;</span><br><span class="line">            // 从右向左找第一个小于x的数</span><br><span class="line">            <span class="keyword">while</span>(i &lt; j &amp;&amp; s[j] &gt;= x) &#123;</span><br><span class="line">                j--;  </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(i &lt; j) &#123;</span><br><span class="line">                s[i++] = s[j];</span><br><span class="line">            &#125;</span><br><span class="line">            // 从左向右找第一个大于等于x的数</span><br><span class="line">            <span class="keyword">while</span>(i &lt; j &amp;&amp; s[i] &lt; x)&#123;</span><br><span class="line">                i++;  </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(i &lt; j) &#123;</span><br><span class="line">                s[j--] = s[i];</span><br><span class="line">            &#125;   </span><br><span class="line">        &#125;</span><br><span class="line">        s[i] = x;</span><br><span class="line">        quick_sort(s, l, i - 1); // 递归调用 </span><br><span class="line">        quick_sort(s, i + 1, r);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">quick_sort1</span></span>()&#123;</span><br><span class="line">    var s = [1,5,3,7,9,10,51];</span><br><span class="line">    var l = 0;</span><br><span class="line">    var r = 6;</span><br><span class="line">    quick_sort(s, l, r);</span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">quick_sort1();</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
 
-<h3 id="快速排序和归并的区别就在于它正好和递归的排序反过来。"><a href="#快速排序和归并的区别就在于它正好和递归的排序反过来。" class="headerlink" title="快速排序和归并的区别就在于它正好和递归的排序反过来。"></a>快速排序和归并的区别就在于它正好和递归的排序反过来。</h3><p>快速排序先排序再递归细分，排序是从上到下的。归并排序先递归细分再排序，排序是从下到上的。</p>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/02/二分查找/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-二叉树、完全二叉树、满二叉树的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/01/二叉树、完全二叉树、满二叉树的区别/">二叉树、完全二叉树、满二叉树的区别</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/01/二叉树、完全二叉树、满二叉树的区别/" class="archive-article-date">
+  	<time datetime="2019-09-01T11:00:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><p>在计算机科学中，二叉树是每个结点最多有两个子树的树结构。通常子树被称作“左子树”（left subtree）和“右子树”（right subtree）。二叉树常被用于实现二叉查找树和二叉堆。<br>一棵深度为k，且有2^k-1个结点的二叉树，称为满二叉树。这种树的特点是每一层上的结点数都是最大结点数。而在一棵二叉树中，除最后一层外，若其余层都是满的，并且或者最后一层是满的，或者是在右边缺少连续若干结点，则此二叉树为完全二叉树。具有n个结点的完全二叉树的深度为floor(log2n)+1。深度为k的完全二叉树，至少有2k-1个叶子结点，至多有2k-1个结点。（来源于百度百科-二叉树）</p>
+<h3 id="总的来说就是：每一个节点关联的子节点最多只有两个，分别称为左子树和右子树"><a href="#总的来说就是：每一个节点关联的子节点最多只有两个，分别称为左子树和右子树" class="headerlink" title="总的来说就是：每一个节点关联的子节点最多只有两个，分别称为左子树和右子树"></a>总的来说就是：每一个节点关联的子节点最多只有两个，分别称为左子树和右子树</h3><h2 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h2><p>除最后一层无任何子节点外，每一层上的所有结点都有两个子结点的二叉树。<br>国内教程定义：一个二叉树，如果每一个层的结点数都达到最大值，则这个二叉树就是满二叉树。也就是说，如果一个二叉树的层数为K，且结点总数是(2^k) -1 ，则它就是满二叉树。<br>大意为：如果一棵二叉树的结点要么是叶子结点，要么它有两个子结点，这样的树就是满二叉树。(一棵满二叉树的每一个结点要么是叶子结点，要么它有两个子结点，但是反过来不成立，因为完全二叉树也满足这个要求，但不是满二叉树)（来源于百度百科-满二叉树）</p>
+<h3 id="总的来说就是：除了最后一层子节点外，每一层上的所有节点都有两个子节点的二叉树"><a href="#总的来说就是：除了最后一层子节点外，每一层上的所有节点都有两个子节点的二叉树" class="headerlink" title="总的来说就是：除了最后一层子节点外，每一层上的所有节点都有两个子节点的二叉树"></a>总的来说就是：除了最后一层子节点外，每一层上的所有节点都有两个子节点的二叉树</h3><h2 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h2><p>若设二叉树的深度为h，除第 h 层外，其它各层 (1～h-1) 的结点数都达到最大个数，第 h 层所有的结点都连续集中在最左边，这就是完全二叉树。<br>完全二叉树是由满二叉树而引出来的。对于深度为K的，有n个结点的二叉树，当且仅当其每一个结点都与深度为K的满二叉树中编号从1至n的结点一一对应时称之为完全二叉树。<br>(1)所有的叶结点都出现在第k层或k-l层（层次最大的两层）<br>(2)对任一结点，如果其右子树的最大层次为L，则其左子树的最大层次为L或L+l。<br>一棵二叉树至多只有最下面的两层上的结点的度数可以小于2，并且最下层上的结点都集中在该层最左边的若干位置上，则此二叉树成为完全二叉树，并且最下层上的结点都集中在该层最左边的若干位置上，而在最后一层上，右边的若干结点缺失的二叉树，则此二叉树成为完全二叉树。（来源于百度百科-完全二叉树）</p>
+<h3 id="总的来说就是：一颗深度为H的二叉树，它的1层到H-1层的所有节点都是满的，"><a href="#总的来说就是：一颗深度为H的二叉树，它的1层到H-1层的所有节点都是满的，" class="headerlink" title="总的来说就是：一颗深度为H的二叉树，它的1层到H-1层的所有节点都是满的，"></a>总的来说就是：一颗深度为H的二叉树，它的1层到H-1层的所有节点都是满的，</h3><p>如果H层节点不满，则对于任何一节点其左子树的最大层大于或等于其右子树的最大层<br>满二叉树是特殊的完全二叉树</p>
 
       
 
@@ -191,7 +253,75 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/30/快速排序、归并排序详解/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/09/01/二叉树、完全二叉树、满二叉树的区别/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-拓扑排序、堆排序介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/31/拓扑排序、堆排序介绍/">拓扑排序、堆排序介绍</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/31/拓扑排序、堆排序介绍/" class="archive-article-date">
+  	<time datetime="2019-08-31T08:12:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h2><p>是一种图论算法，在图论中有一个有向无环图的顶点当且仅当满足两个条件时称为该图的拓扑排序<br>1.每个顶点出现且出现一次<br>2.若在图中出现A到B的路径，则在图中不存在B到A的路径</p>
+<h3 id="拓扑排序的思想"><a href="#拓扑排序的思想" class="headerlink" title="拓扑排序的思想"></a>拓扑排序的思想</h3><p>从有向图中取出没有前驱（入度为零）的顶点，输出<br>从有向图中删除以它为顶点以及所有以它为尾的弧<br>重复上述步骤直至图空或者找不到没有前驱的顶点为止</p>
+<h3 id="下面是算法的演示过程"><a href="#下面是算法的演示过程" class="headerlink" title="下面是算法的演示过程"></a>下面是算法的演示过程</h3><p>(图片)</p>
+<h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><p>是一种选择排序，它最好最坏结果的时间复杂度都为nlogn，是不稳定排序<br>他的结果是一个完全二叉树，分为两种：<br>若每一个节点的值都大于或等于其孩子节点的值称为大顶堆<br>若每一个节点的值都小于或等于其孩子节点的值称为小顶堆</p>
+<h3 id="大顶堆"><a href="#大顶堆" class="headerlink" title="大顶堆"></a>大顶堆</h3><p>（图片）</p>
+<h3 id="小顶堆"><a href="#小顶堆" class="headerlink" title="小顶堆"></a>小顶堆</h3><p>(图片)</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/31/拓扑排序、堆排序介绍/">展开全文 >></a>
         </p>
       
 
@@ -224,24 +354,11 @@
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/30/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/30/hello-world/" class="archive-article-date">
-  	<time datetime="2019-08-30T12:18:25.080Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-30</time>
-</a>
-        
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+        <pre><code>---
+title: Hello World
+---</code></pre><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
@@ -267,6 +384,77 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/08/30/hello-world/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-快速排序、归并排序详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/30/快速排序、归并排序详解/">快速排序、归并排序详解</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/30/快速排序、归并排序详解/" class="archive-article-date">
+  	<time datetime="2019-08-30T11:15:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p>是稳定的排序算法（时间复杂度（nlogn））</p>
+<h3 id="归并排序的原理"><a href="#归并排序的原理" class="headerlink" title="归并排序的原理"></a>归并排序的原理</h3><p>利用了分治思想，先将数组反复一分为二，直到每个数组中只有一个元素，然后是治的过程，治其实是将有序的数组合并成更大有序数组的过程，从数组最小的开始，两两比较按顺序合并，直至合并的数组为原始数组大小</p>
+<h3 id="js代码实现"><a href="#js代码实现" class="headerlink" title="js代码实现"></a>js代码实现</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">// 融合两个有序数组，这里实际上是将数组 arr 分为两个数组</span><br><span class="line"><span class="keyword">function</span> mergeArray(arr, first, mid, last, temp) &#123;</span><br><span class="line">	<span class="built_in">let</span> i = first; </span><br><span class="line"> 	<span class="built_in">let</span> m = mid;</span><br><span class="line">  	<span class="built_in">let</span> j = mid+1;</span><br><span class="line">	<span class="built_in">let</span> n = last;</span><br><span class="line">  	<span class="built_in">let</span> k = 0;</span><br><span class="line">  	<span class="keyword">while</span>(i&lt;=m &amp;&amp; j&lt;=n) &#123;</span><br><span class="line">    	<span class="keyword">if</span>(arr[i] &lt; arr[j]) &#123;</span><br><span class="line">     	 temp[k++] = arr[i++];</span><br><span class="line">   	 	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">     		temp[k++] = arr[j++];</span><br><span class="line">    	&#125;</span><br><span class="line"> 	&#125;</span><br><span class="line">  	<span class="keyword">while</span>(i&lt;=m) &#123;</span><br><span class="line">    	temp[k++] = arr[i++];</span><br><span class="line"> 	&#125;</span><br><span class="line">  	<span class="keyword">while</span>(j&lt;=n) &#123;</span><br><span class="line">    	temp[k++] = arr[j++];</span><br><span class="line">  	&#125; </span><br><span class="line">  	<span class="keyword">for</span>(<span class="built_in">let</span> l=0; l&lt;k; l++) &#123;</span><br><span class="line">    	arr[first+l] = temp[l];</span><br><span class="line">  	&#125;</span><br><span class="line">  	<span class="built_in">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line">// 递归实现归并排序</span><br><span class="line"><span class="keyword">function</span> mergeSort(arr, first, last, temp) &#123;</span><br><span class="line">  	<span class="keyword">if</span>(first&lt;last) &#123;</span><br><span class="line">    	<span class="built_in">let</span> mid = Math.foor((first+last)/2);</span><br><span class="line">    	mergeSort(arr, first, mid, temp);    // 左子数组有序</span><br><span class="line">    	mergeSort(arr, mid+1, last, temp);   // 右子数组有序</span><br><span class="line">    	arr = mergeArray(arr, first, mid, last, temp);  </span><br><span class="line">  	&#125;</span><br><span class="line">  	<span class="built_in">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// example</span><br><span class="line"><span class="built_in">let</span> arr = [10, 3, 1, 5, 11, 2, 0, 6, 3];</span><br><span class="line"><span class="built_in">let</span> temp = new Array();</span><br><span class="line"><span class="built_in">let</span> SortedArr = mergeSort(arr, 0 ,arr.length-1, temp);</span><br><span class="line">alert(SortedArr);</span><br></pre></td></tr></table></figure>
+
+<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>是不稳定排序算法（时间复杂度（nlogn）,最坏为n平方）</p>
+<h3 id="快速排序原理"><a href="#快速排序原理" class="headerlink" title="快速排序原理"></a>快速排序原理</h3><p>挖坑填数法+分治法<br>先从数组中取出一个数作为基数，一般是取第一个，把数组中比基数小的数放在左边，比基数大的放在右边，然后使用分治思想，对左右区间重复上述步骤直到各区间只有一个数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">//返回调整后基准数的位置</span><br><span class="line"><span class="keyword">function</span> quick_sort(s, l, r)&#123;</span><br><span class="line">    <span class="keyword">if</span> (l &lt; r)&#123;</span><br><span class="line">        //Swap(s[l], s[(l + r) / 2]); </span><br><span class="line">        //将中间的这个数和第一个数交换 参见注1</span><br><span class="line">        var i = l, j = r, x = s[l];</span><br><span class="line">        <span class="keyword">while</span> (i &lt; j)&#123;</span><br><span class="line">            // 从右向左找第一个小于x的数</span><br><span class="line">            <span class="keyword">while</span>(i &lt; j &amp;&amp; s[j] &gt;= x) &#123;</span><br><span class="line">                j--;  </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(i &lt; j) &#123;</span><br><span class="line">                s[i++] = s[j];</span><br><span class="line">            &#125;</span><br><span class="line">            // 从左向右找第一个大于等于x的数</span><br><span class="line">            <span class="keyword">while</span>(i &lt; j &amp;&amp; s[i] &lt; x)&#123;</span><br><span class="line">                i++;  </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(i &lt; j) &#123;</span><br><span class="line">                s[j--] = s[i];</span><br><span class="line">            &#125;   </span><br><span class="line">        &#125;</span><br><span class="line">        s[i] = x;</span><br><span class="line">        quick_sort(s, l, i - 1); // 递归调用 </span><br><span class="line">        quick_sort(s, i + 1, r);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">quick_sort1</span></span>()&#123;</span><br><span class="line">    var s = [1,5,3,7,9,10,51];</span><br><span class="line">    var l = 0;</span><br><span class="line">    var r = 6;</span><br><span class="line">    quick_sort(s, l, r);</span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">quick_sort1();</span><br></pre></td></tr></table></figure>
+
+<h3 id="快速排序和归并的区别就在于它正好和递归的排序反过来。"><a href="#快速排序和归并的区别就在于它正好和递归的排序反过来。" class="headerlink" title="快速排序和归并的区别就在于它正好和递归的排序反过来。"></a>快速排序和归并的区别就在于它正好和递归的排序反过来。</h3><p>快速排序先排序再递归细分，排序是从上到下的。归并排序先递归细分再排序，排序是从下到上的。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/30/快速排序、归并排序详解/">展开全文 >></a>
         </p>
       
 

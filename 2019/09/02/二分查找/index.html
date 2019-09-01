@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | XINCHEN</title>
+  <title>二分查找详解 | XINCHEN</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="XINCHEN">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="二分查找是不稳定算法（时间复杂度（logn）最坏,令n/2^k = 1。得k=logn，最好o(1)） 二分查找原理二分查找也称折半查找，在给定的有序数组中，比如是从小到大排序，寻找目标值的位置，把数组对半一分为二，将数组中间值和目标值比较，如果中间值比目标值小，则舍去数组左半边部分，反之舍去右半边，剩下的部分重复折半过程，直至找到目标值。 二分查找通常比顺序查找更好，但对于一些大型的列表，排序一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二分查找详解">
+<meta property="og:url" content="http://yoursite.com/2019/09/02/二分查找/index.html">
 <meta property="og:site_name" content="XINCHEN">
+<meta property="og:description" content="二分查找是不稳定算法（时间复杂度（logn）最坏,令n/2^k = 1。得k=logn，最好o(1)） 二分查找原理二分查找也称折半查找，在给定的有序数组中，比如是从小到大排序，寻找目标值的位置，把数组对半一分为二，将数组中间值和目标值比较，如果中间值比目标值小，则舍去数组左半边部分，反之舍去右半边，剩下的部分重复折半过程，直至找到目标值。 二分查找通常比顺序查找更好，但对于一些大型的列表，排序一">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-30T14:26:51.752Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XINCHEN">
+<meta name="twitter:title" content="二分查找详解">
+<meta name="twitter:description" content="二分查找是不稳定算法（时间复杂度（logn）最坏,令n/2^k = 1。得k=logn，最好o(1)） 二分查找原理二分查找也称折半查找，在给定的有序数组中，比如是从小到大排序，寻找目标值的位置，把数组对半一分为二，将数组中间值和目标值比较，如果中间值比目标值小，则舍去数组左半边部分，反之舍去右半边，剩下的部分重复折半过程，直至找到目标值。 二分查找通常比顺序查找更好，但对于一些大型的列表，排序一">
   
     <link rel="alternative" href="/atom.xml" title="XINCHEN" type="application/atom+xml">
   
@@ -150,178 +154,158 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-二分查找" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      二分查找详解
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/02/二分查找/" class="archive-article-date">
+
+        
+        <a href="/2019/09/02/二分查找/" class="archive-article-date">
   	<time datetime="2019-09-02T11:10:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-02</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/02/二分查找/">二分查找详解</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><p>是不稳定算法（时间复杂度（logn）最坏,令n/2^k = 1。得k=logn，最好o(1)）</p>
+<h3 id="二分查找原理"><a href="#二分查找原理" class="headerlink" title="二分查找原理"></a>二分查找原理</h3><p>二分查找也称折半查找，在给定的有序数组中，比如是从小到大排序，寻找目标值的位置，把数组对半一分为二，将数组中间值和目标值比较，如果中间值比目标值小，则舍去数组左半边部分，反之舍去右半边，剩下的部分重复折半过程，直至找到目标值。</p>
+<p>二分查找通常比顺序查找更好，但对于一些大型的列表，排序一次可能是非常耗费，<br>所以顺序查找可能是比较好的选择。</p>
+<h3 id="js代码实现"><a href="#js代码实现" class="headerlink" title="js代码实现"></a>js代码实现</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> binary_search(arr, low, high, key)&#123;</span><br><span class="line">    <span class="keyword">if</span>(low &gt; high)</span><br><span class="line">    <span class="built_in">return</span> -1;</span><br><span class="line">    var mid = parseInt((high+low)/2);</span><br><span class="line">    <span class="keyword">if</span>(arr[mid] == key)&#123;</span><br><span class="line">        <span class="built_in">return</span> mid;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(arr[mid] &gt; key)&#123;</span><br><span class="line">        high = mid-1;</span><br><span class="line">        <span class="built_in">return</span> binary_search(arr,low, high, key);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(arr[mid] &lt; key)&#123;</span><br><span class="line">        low = mid+1;</span><br><span class="line">        <span class="built_in">return</span> binary_search(arr, low, high, key);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var arr = [1, 2, 3, 4, 5, 6, 7, 10, 11, 12, 18];</span><br><span class="line">var result = binary_search(arr, 0, 12, 10);</span><br><span class="line">console.log(result);</span><br></pre></td></tr></table></figure>
+      
 
-        <div class="article-info info-on-right">
-          
-          
-
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/02/二分查找/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/01/二叉树、完全二叉树、满二叉树的区别/" class="archive-article-date">
-  	<time datetime="2019-09-01T11:00:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-01</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/09/01/二叉树、完全二叉树、满二叉树的区别/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">二叉树、完全二叉树、满二叉树的区别</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/01/二叉树、完全二叉树、满二叉树的区别/">二叉树、完全二叉树、满二叉树的区别</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/31/拓扑排序、堆排序介绍/" class="archive-article-date">
-  	<time datetime="2019-08-31T08:12:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/31/拓扑排序、堆排序介绍/">拓扑排序、堆排序介绍</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/30/hello-world/" class="archive-article-date">
-  	<time datetime="2019-08-30T12:18:25.080Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-30</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/30/快速排序、归并排序详解/" class="archive-article-date">
-  	<time datetime="2019-08-30T11:15:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/30/快速排序、归并排序详解/">快速排序、归并排序详解</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/30/hello-blog/" class="archive-article-date">
-  	<time datetime="2019-08-30T11:12:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/30/hello-blog/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -344,8 +328,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
