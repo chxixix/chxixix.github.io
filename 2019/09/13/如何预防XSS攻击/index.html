@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>XINCHEN</title>
+  <title>如何预防XSS攻击 | XINCHEN</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="XINCHEN">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="什么是XSSXSS-跨站脚本攻击，如果恶意的js代码能在页面运行的话，就会操控用户界面，甚至盗取用户信息可以得知，XSS攻击有两大要素1.攻击者提交恶意代码2.浏览器执行恶意代码 XSS分类存储型XSS攻击反射型XSS攻击DOM型XSS攻击 预防存储型XSS和反射型XSS存储型与反射型的区别在于：一个将恶意代码存储在目标网站的数据库中，另一个将目标代码存放在攻击者构造的url中 所以前者的攻击常见">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何预防XSS攻击">
+<meta property="og:url" content="http://yoursite.com/2019/09/13/如何预防XSS攻击/index.html">
 <meta property="og:site_name" content="XINCHEN">
+<meta property="og:description" content="什么是XSSXSS-跨站脚本攻击，如果恶意的js代码能在页面运行的话，就会操控用户界面，甚至盗取用户信息可以得知，XSS攻击有两大要素1.攻击者提交恶意代码2.浏览器执行恶意代码 XSS分类存储型XSS攻击反射型XSS攻击DOM型XSS攻击 预防存储型XSS和反射型XSS存储型与反射型的区别在于：一个将恶意代码存储在目标网站的数据库中，另一个将目标代码存放在攻击者构造的url中 所以前者的攻击常见">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-09-17T03:12:25.695Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XINCHEN">
+<meta name="twitter:title" content="如何预防XSS攻击">
+<meta name="twitter:description" content="什么是XSSXSS-跨站脚本攻击，如果恶意的js代码能在页面运行的话，就会操控用户界面，甚至盗取用户信息可以得知，XSS攻击有两大要素1.攻击者提交恶意代码2.浏览器执行恶意代码 XSS分类存储型XSS攻击反射型XSS攻击DOM型XSS攻击 预防存储型XSS和反射型XSS存储型与反射型的区别在于：一个将恶意代码存储在目标网站的数据库中，另一个将目标代码存放在攻击者构造的url中 所以前者的攻击常见">
   
     <link rel="alternative" href="/atom.xml" title="XINCHEN" type="application/atom+xml">
   
@@ -150,16 +154,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-如何预防XSS攻击" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-如何预防XSS攻击" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/13/如何预防XSS攻击/">如何预防XSS攻击</a>
+    <h1 class="article-title" itemprop="name">
+      如何预防XSS攻击
     </h1>
   
 
@@ -192,6 +194,27 @@
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -199,16 +222,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/13/如何预防XSS攻击/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/13/如何预防XSS攻击/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/09/10/跨域问题与Ajax解决跨域方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">跨域问题与Ajax解决跨域方法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -228,435 +310,14 @@
 
 
 
-
   
-    <article id="post-跨域问题与Ajax解决跨域方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/10/跨域问题与Ajax解决跨域方法/">跨域问题与Ajax解决跨域方法</a>
-    </h1>
   
 
-        
-        <a href="/2019/09/10/跨域问题与Ajax解决跨域方法/" class="archive-article-date">
-  	<time datetime="2019-09-10T11:14:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="跨域问题"><a href="#跨域问题" class="headerlink" title="跨域问题"></a>跨域问题</h2><p>跨域这个问题的出现是因为浏览器的同源策略</p>
-<p>同源策略限制了一个源的文档或者脚本与另一个源的文档或者脚本进行交互，是一种用于隔离潜在恶意文档的重要安全机制</p>
-<p>同源指的是url中的协议、域名、端口三部分相同，只要其中有一个不一样，就会受到跨域限制</p>
-<p>但有些请求不受跨域限制，比如：WebSocket, script, img, iframe, video, audio标签的src属性</p>
-<p>比如myweb中，index页面localhost:3000需要跨域请求thirdparty中的localhost:5000这个接口，前端的操作是点击“点击”时控制台输出信息</p>
-<p>以下解决方法基于nodejs+express</p>
-<p>通过点击“点击”实现跨域<br>代码如下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">""</span> value=<span class="string">""</span> id=<span class="string">"name"</span> /&gt;</span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> id=<span class="string">"id"</span> name=<span class="string">""</span> value=<span class="string">""</span> /&gt;</span><br><span class="line">&lt;div class=<span class="string">""</span> id=<span class="string">"submit"</span>&gt;点击&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Ajax解决跨域的三种方案"><a href="#Ajax解决跨域的三种方案" class="headerlink" title="Ajax解决跨域的三种方案"></a>Ajax解决跨域的三种方案</h2><h3 id="使用代理"><a href="#使用代理" class="headerlink" title="使用代理"></a>使用代理</h3><p>不需要第三方服务端进行改造，仍然遵循同源策略，只是将请求移至后端</p>
-<h4 id="具体实现方法"><a href="#具体实现方法" class="headerlink" title="具体实现方法"></a>具体实现方法</h4><p>需要安装中间件http-proxy-middleware<br>前端：将需要访问的地址的协议、域名、端口改成/proxy<br>后端：添加一个proxy接口，处理跨域ajax请求的转发</p>
-<h4 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h4><p>优点<br>不需要第三方服务进行改造<br>缺点<br>1.必须有自己的后端服务<br>2.如果请求头包含一些特殊的请求头比如：cookie，转发时要特殊处理</p>
-<h3 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h3><p>w3c提出了cors（跨域资源共享）专门解决跨域问题，只需要简单配置相应的请求头与响应头信息</p>
-<h4 id="具体实现方法-1"><a href="#具体实现方法-1" class="headerlink" title="具体实现方法"></a>具体实现方法</h4><p>前端：打开浏览器的控制台，在错误中找到origin的头信息<br>后端：设置服务器端的响应头中的一个头信息为Access-Control-Allow-Origin的内容为控制台找到的origin的内容，设置为*号则会接受所有域的请求</p>
-<p>如果希望请求中能带上服务器需要的cookie，在上述基础上做以下添加<br>前端：在ajax请求中设置withCredentials属性为true<br>后端：在服务器端的头信息中再添加Access-Control-Allow-Credentials的响应头，并设置为true</p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><p>myweb</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    $(<span class="string">'#submit'</span>).on(<span class="string">'click'</span>,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        var data=&#123;</span><br><span class="line">            name:$(<span class="string">"#name"</span>).val(),</span><br><span class="line">            id:$(<span class="string">"#id"</span>).val()</span><br><span class="line">        &#125;;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            url: <span class="string">"http://localhost:5000/ajax/deal"</span>,</span><br><span class="line">            <span class="built_in">type</span>: <span class="string">'post'</span>,</span><br><span class="line">            dataType: <span class="string">'json'</span>,</span><br><span class="line">            data: data,</span><br><span class="line">            //带cookie跨域</span><br><span class="line">//            xhrFields:&#123;</span><br><span class="line">//              withCredentials:<span class="literal">true</span></span><br><span class="line">//            &#125;,</span><br><span class="line">            success: <span class="keyword">function</span> (data) &#123;</span><br><span class="line">                console.log(data)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-
-<p>thirdparty</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//第三方的接口</span><br><span class="line">router.post(<span class="string">'/ajax/deal'</span>, <span class="keyword">function</span>(req, res) &#123;</span><br><span class="line">    console.log(<span class="string">"server accept: "</span>, req.body.name, req.body.id);</span><br><span class="line">    var data = &#123;</span><br><span class="line">        name: req.body.name + <span class="string">' - server 5000 process'</span>,</span><br><span class="line">        id: req.body.id + <span class="string">' - server 5000 process'</span></span><br><span class="line">    &#125;;</span><br><span class="line">    res.header(<span class="string">"Access-Control-Allow-Origin"</span>,<span class="string">"http://localhost:3000"</span>);</span><br><span class="line">    // res.header(<span class="string">"Access-Control-Allow-Credentials"</span>,<span class="literal">true</span>);//表情服务器允许包含cookie</span><br><span class="line">    res.send(data);</span><br><span class="line">    res.end()</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h4 id="优缺点-1"><a href="#优缺点-1" class="headerlink" title="优缺点"></a>优缺点</h4><p>优点<br>1.支持各种请求类型<br>2.只需要简单配置响应头和请求头信息<br>缺点<br>1.如果服务器无法改造则无法实现跨域<br>2.不兼容”古董”浏览器</p>
-<h3 id="Jsonp"><a href="#Jsonp" class="headerlink" title="Jsonp"></a>Jsonp</h3><p>根据script标签不接受同源策略，因此将客户端需要的数据写入javascript脚本中返回给客户端</p>
-<h4 id="具体实现方法-2"><a href="#具体实现方法-2" class="headerlink" title="具体实现方法"></a>具体实现方法</h4><p>前端：创建一个回调函数，Ajax本身封装了Jsonp，把请求类型改成GET，dataType改成Jsonp，将回调函数名作为请求的参数<br>后端：用前端传来的回调函数包裹住数据，返回一个脚本文件</p>
-<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><p>myweb</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> callback(data) &#123;</span><br><span class="line">    console.log(<span class="string">'jsonpCallBack: name'</span>+data.name+<span class="string">' id'</span>+data.id);</span><br><span class="line">&#125;</span><br><span class="line">$(<span class="string">'#submit'</span>).on(<span class="string">'click'</span>,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        var data=&#123;</span><br><span class="line">            name:$(<span class="string">"#name"</span>).val(),</span><br><span class="line">            id:$(<span class="string">"#id"</span>).val()</span><br><span class="line">        &#125;;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">        	jsonp</span><br><span class="line">           url:<span class="string">"http://localhost:5000/ajax/deal"</span>,</span><br><span class="line">//         jsonp只支持GET</span><br><span class="line">           <span class="built_in">type</span>:<span class="string">'get'</span>,</span><br><span class="line">           dataType:<span class="string">'jsonp'</span>,</span><br><span class="line">           data:data,</span><br><span class="line">           jsonpCallback:<span class="string">'callback'</span>,</span><br><span class="line">           jsonp:<span class="string">'callback'</span>,</span><br><span class="line">           success:<span class="keyword">function</span>(data)&#123;</span><br><span class="line">               console.log(<span class="string">'jsonp:ajax success callback name: '</span>+data.name+<span class="string">' id'</span>+data.id)</span><br><span class="line">           &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-
-<p>thirdparty</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">router.get(<span class="string">'/ajax/deal'</span>, <span class="keyword">function</span>(req, res) &#123;</span><br><span class="line">    console.log(<span class="string">"server accept: "</span>, req.query.name, req.query.id);</span><br><span class="line">    var data = <span class="string">"&#123;"</span> + <span class="string">"name:'"</span> + req.query.name + <span class="string">"',"</span> + <span class="string">"id:'"</span> + req.query.id + <span class="string">"'"</span> + <span class="string">"&#125;"</span>;</span><br><span class="line">    var callback = req.query.callback;</span><br><span class="line">    var jsonp = callback+<span class="string">"("</span>+data+<span class="string">")"</span>;</span><br><span class="line">    res.send(jsonp);//callBack(&#123;name:name,id:id&#125;)</span><br><span class="line">    res.end()</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h4 id="优缺点-2"><a href="#优缺点-2" class="headerlink" title="优缺点"></a>优缺点</h4><p>优点<br>jsonp是一个久远的方法，所以兼容性非常好<br>缺点<br>1.只支持get请求<br>2.前后端改造开发量较高<br>3.如果服务器不支持改造，则无法实现跨域</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>为了保护网络安全，提出了同源策略限制一个域上的脚本获取另一个域的文档属性，于是就有了跨域问题的出现和解决方案，其中包括了W3C标准解决方案（CORS）和一般解决方案（请求代理、Jsonp、标签script等），客户端与服务器之间解决，客户端前后台之间解决</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/10/跨域问题与Ajax解决跨域方法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-二分查找" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/02/二分查找/">二分查找详解</a>
-    </h1>
   
 
-        
-        <a href="/2019/09/02/二分查找/" class="archive-article-date">
-  	<time datetime="2019-09-02T11:10:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><p>是不稳定算法（时间复杂度（logn）最坏,令n/2^k = 1。得k=logn，最好o(1)）</p>
-<h3 id="二分查找原理"><a href="#二分查找原理" class="headerlink" title="二分查找原理"></a>二分查找原理</h3><p>二分查找也称折半查找，在给定的有序数组中，比如是从小到大排序，寻找目标值的位置，把数组对半一分为二，将数组中间值和目标值比较，如果中间值比目标值小，则舍去数组左半边部分，反之舍去右半边，剩下的部分重复折半过程，直至找到目标值。</p>
-<p>二分查找通常比顺序查找更好，但对于一些大型的列表，排序一次可能是非常耗费，<br>所以顺序查找可能是比较好的选择。</p>
-<h3 id="js代码实现"><a href="#js代码实现" class="headerlink" title="js代码实现"></a>js代码实现</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> binary_search(arr, low, high, key)&#123;</span><br><span class="line">    <span class="keyword">if</span>(low &gt; high)</span><br><span class="line">    <span class="built_in">return</span> -1;</span><br><span class="line">    var mid = parseInt((high+low)/2);</span><br><span class="line">    <span class="keyword">if</span>(arr[mid] == key)&#123;</span><br><span class="line">        <span class="built_in">return</span> mid;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(arr[mid] &gt; key)&#123;</span><br><span class="line">        high = mid-1;</span><br><span class="line">        <span class="built_in">return</span> binary_search(arr,low, high, key);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(arr[mid] &lt; key)&#123;</span><br><span class="line">        low = mid+1;</span><br><span class="line">        <span class="built_in">return</span> binary_search(arr, low, high, key);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var arr = [1, 2, 3, 4, 5, 6, 7, 10, 11, 12, 18];</span><br><span class="line">var result = binary_search(arr, 0, 12, 10);</span><br><span class="line">console.log(result);</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/02/二分查找/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-二叉树、完全二叉树、满二叉树的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/01/二叉树、完全二叉树、满二叉树的区别/">二叉树、完全二叉树、满二叉树的区别</a>
-    </h1>
   
 
-        
-        <a href="/2019/09/01/二叉树、完全二叉树、满二叉树的区别/" class="archive-article-date">
-  	<time datetime="2019-09-01T11:00:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><p>在计算机科学中，二叉树是每个结点最多有两个子树的树结构。通常子树被称作“左子树”（left subtree）和“右子树”（right subtree）。二叉树常被用于实现二叉查找树和二叉堆。<br>一棵深度为k，且有2^k-1个结点的二叉树，称为满二叉树。这种树的特点是每一层上的结点数都是最大结点数。而在一棵二叉树中，除最后一层外，若其余层都是满的，并且或者最后一层是满的，或者是在右边缺少连续若干结点，则此二叉树为完全二叉树。具有n个结点的完全二叉树的深度为floor(log2n)+1。深度为k的完全二叉树，至少有2k-1个叶子结点，至多有2k-1个结点。（来源于百度百科-二叉树）</p>
-<h3 id="总的来说就是：每一个节点关联的子节点最多只有两个，分别称为左子树和右子树"><a href="#总的来说就是：每一个节点关联的子节点最多只有两个，分别称为左子树和右子树" class="headerlink" title="总的来说就是：每一个节点关联的子节点最多只有两个，分别称为左子树和右子树"></a>总的来说就是：每一个节点关联的子节点最多只有两个，分别称为左子树和右子树</h3><h2 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h2><p>除最后一层无任何子节点外，每一层上的所有结点都有两个子结点的二叉树。<br>国内教程定义：一个二叉树，如果每一个层的结点数都达到最大值，则这个二叉树就是满二叉树。也就是说，如果一个二叉树的层数为K，且结点总数是(2^k) -1 ，则它就是满二叉树。<br>大意为：如果一棵二叉树的结点要么是叶子结点，要么它有两个子结点，这样的树就是满二叉树。(一棵满二叉树的每一个结点要么是叶子结点，要么它有两个子结点，但是反过来不成立，因为完全二叉树也满足这个要求，但不是满二叉树)（来源于百度百科-满二叉树）</p>
-<h3 id="总的来说就是：除了最后一层子节点外，每一层上的所有节点都有两个子节点的二叉树"><a href="#总的来说就是：除了最后一层子节点外，每一层上的所有节点都有两个子节点的二叉树" class="headerlink" title="总的来说就是：除了最后一层子节点外，每一层上的所有节点都有两个子节点的二叉树"></a>总的来说就是：除了最后一层子节点外，每一层上的所有节点都有两个子节点的二叉树</h3><h2 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h2><p>若设二叉树的深度为h，除第 h 层外，其它各层 (1～h-1) 的结点数都达到最大个数，第 h 层所有的结点都连续集中在最左边，这就是完全二叉树。<br>完全二叉树是由满二叉树而引出来的。对于深度为K的，有n个结点的二叉树，当且仅当其每一个结点都与深度为K的满二叉树中编号从1至n的结点一一对应时称之为完全二叉树。<br>(1)所有的叶结点都出现在第k层或k-l层（层次最大的两层）<br>(2)对任一结点，如果其右子树的最大层次为L，则其左子树的最大层次为L或L+l。<br>一棵二叉树至多只有最下面的两层上的结点的度数可以小于2，并且最下层上的结点都集中在该层最左边的若干位置上，则此二叉树成为完全二叉树，并且最下层上的结点都集中在该层最左边的若干位置上，而在最后一层上，右边的若干结点缺失的二叉树，则此二叉树成为完全二叉树。（来源于百度百科-完全二叉树）</p>
-<h3 id="总的来说就是：一颗深度为H的二叉树，它的1层到H-1层的所有节点都是满的，"><a href="#总的来说就是：一颗深度为H的二叉树，它的1层到H-1层的所有节点都是满的，" class="headerlink" title="总的来说就是：一颗深度为H的二叉树，它的1层到H-1层的所有节点都是满的，"></a>总的来说就是：一颗深度为H的二叉树，它的1层到H-1层的所有节点都是满的，</h3><p>如果H层节点不满，则对于任何一节点其左子树的最大层大于或等于其右子树的最大层<br>满二叉树是特殊的完全二叉树</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/01/二叉树、完全二叉树、满二叉树的区别/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-拓扑排序、堆排序介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/31/拓扑排序、堆排序介绍/">拓扑排序、堆排序介绍</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/31/拓扑排序、堆排序介绍/" class="archive-article-date">
-  	<time datetime="2019-08-31T08:12:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h2><p>是一种图论算法，在图论中有一个有向无环图的顶点当且仅当满足两个条件时称为该图的拓扑排序<br>1.每个顶点出现且出现一次<br>2.若在图中出现A到B的路径，则在图中不存在B到A的路径</p>
-<h3 id="拓扑排序的思想"><a href="#拓扑排序的思想" class="headerlink" title="拓扑排序的思想"></a>拓扑排序的思想</h3><p>从有向图中取出没有前驱（入度为零）的顶点，输出<br>从有向图中删除以它为顶点以及所有以它为尾的弧<br>重复上述步骤直至图空或者找不到没有前驱的顶点为止</p>
-<h3 id="下面是算法的演示过程"><a href="#下面是算法的演示过程" class="headerlink" title="下面是算法的演示过程"></a>下面是算法的演示过程</h3><p>(图片)</p>
-<h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><p>是一种选择排序，它最好最坏结果的时间复杂度都为nlogn，是不稳定排序<br>他的结果是一个完全二叉树，分为两种：<br>若每一个节点的值都大于或等于其孩子节点的值称为大顶堆<br>若每一个节点的值都小于或等于其孩子节点的值称为小顶堆</p>
-<h3 id="大顶堆"><a href="#大顶堆" class="headerlink" title="大顶堆"></a>大顶堆</h3><p>（图片）</p>
-<h3 id="小顶堆"><a href="#小顶堆" class="headerlink" title="小顶堆"></a>小顶堆</h3><p>(图片)</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/31/拓扑排序、堆排序介绍/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-快速排序、归并排序详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/30/快速排序、归并排序详解/">快速排序、归并排序详解</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/30/快速排序、归并排序详解/" class="archive-article-date">
-  	<time datetime="2019-08-30T11:15:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p>是稳定的排序算法（时间复杂度（nlogn））</p>
-<h3 id="归并排序的原理"><a href="#归并排序的原理" class="headerlink" title="归并排序的原理"></a>归并排序的原理</h3><p>利用了分治思想，先将数组反复一分为二，直到每个数组中只有一个元素，然后是治的过程，治其实是将有序的数组合并成更大有序数组的过程，从数组最小的开始，两两比较按顺序合并，直至合并的数组为原始数组大小</p>
-<h3 id="js代码实现"><a href="#js代码实现" class="headerlink" title="js代码实现"></a>js代码实现</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">// 融合两个有序数组，这里实际上是将数组 arr 分为两个数组</span><br><span class="line"><span class="keyword">function</span> mergeArray(arr, first, mid, last, temp) &#123;</span><br><span class="line">	<span class="built_in">let</span> i = first; </span><br><span class="line"> 	<span class="built_in">let</span> m = mid;</span><br><span class="line">  	<span class="built_in">let</span> j = mid+1;</span><br><span class="line">	<span class="built_in">let</span> n = last;</span><br><span class="line">  	<span class="built_in">let</span> k = 0;</span><br><span class="line">  	<span class="keyword">while</span>(i&lt;=m &amp;&amp; j&lt;=n) &#123;</span><br><span class="line">    	<span class="keyword">if</span>(arr[i] &lt; arr[j]) &#123;</span><br><span class="line">     	 temp[k++] = arr[i++];</span><br><span class="line">   	 	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">     		temp[k++] = arr[j++];</span><br><span class="line">    	&#125;</span><br><span class="line"> 	&#125;</span><br><span class="line">  	<span class="keyword">while</span>(i&lt;=m) &#123;</span><br><span class="line">    	temp[k++] = arr[i++];</span><br><span class="line"> 	&#125;</span><br><span class="line">  	<span class="keyword">while</span>(j&lt;=n) &#123;</span><br><span class="line">    	temp[k++] = arr[j++];</span><br><span class="line">  	&#125; </span><br><span class="line">  	<span class="keyword">for</span>(<span class="built_in">let</span> l=0; l&lt;k; l++) &#123;</span><br><span class="line">    	arr[first+l] = temp[l];</span><br><span class="line">  	&#125;</span><br><span class="line">  	<span class="built_in">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line">// 递归实现归并排序</span><br><span class="line"><span class="keyword">function</span> mergeSort(arr, first, last, temp) &#123;</span><br><span class="line">  	<span class="keyword">if</span>(first&lt;last) &#123;</span><br><span class="line">    	<span class="built_in">let</span> mid = Math.foor((first+last)/2);</span><br><span class="line">    	mergeSort(arr, first, mid, temp);    // 左子数组有序</span><br><span class="line">    	mergeSort(arr, mid+1, last, temp);   // 右子数组有序</span><br><span class="line">    	arr = mergeArray(arr, first, mid, last, temp);  </span><br><span class="line">  	&#125;</span><br><span class="line">  	<span class="built_in">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// example</span><br><span class="line"><span class="built_in">let</span> arr = [10, 3, 1, 5, 11, 2, 0, 6, 3];</span><br><span class="line"><span class="built_in">let</span> temp = new Array();</span><br><span class="line"><span class="built_in">let</span> SortedArr = mergeSort(arr, 0 ,arr.length-1, temp);</span><br><span class="line">alert(SortedArr);</span><br></pre></td></tr></table></figure>
-
-<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>是不稳定排序算法（时间复杂度（nlogn）,最坏为n平方）</p>
-<h3 id="快速排序原理"><a href="#快速排序原理" class="headerlink" title="快速排序原理"></a>快速排序原理</h3><p>挖坑填数法+分治法<br>先从数组中取出一个数作为基数，一般是取第一个，把数组中比基数小的数放在左边，比基数大的放在右边，然后使用分治思想，对左右区间重复上述步骤直到各区间只有一个数</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">//返回调整后基准数的位置</span><br><span class="line"><span class="keyword">function</span> quick_sort(s, l, r)&#123;</span><br><span class="line">    <span class="keyword">if</span> (l &lt; r)&#123;</span><br><span class="line">        //Swap(s[l], s[(l + r) / 2]); </span><br><span class="line">        //将中间的这个数和第一个数交换 参见注1</span><br><span class="line">        var i = l, j = r, x = s[l];</span><br><span class="line">        <span class="keyword">while</span> (i &lt; j)&#123;</span><br><span class="line">            // 从右向左找第一个小于x的数</span><br><span class="line">            <span class="keyword">while</span>(i &lt; j &amp;&amp; s[j] &gt;= x) &#123;</span><br><span class="line">                j--;  </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(i &lt; j) &#123;</span><br><span class="line">                s[i++] = s[j];</span><br><span class="line">            &#125;</span><br><span class="line">            // 从左向右找第一个大于等于x的数</span><br><span class="line">            <span class="keyword">while</span>(i &lt; j &amp;&amp; s[i] &lt; x)&#123;</span><br><span class="line">                i++;  </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(i &lt; j) &#123;</span><br><span class="line">                s[j--] = s[i];</span><br><span class="line">            &#125;   </span><br><span class="line">        &#125;</span><br><span class="line">        s[i] = x;</span><br><span class="line">        quick_sort(s, l, i - 1); // 递归调用 </span><br><span class="line">        quick_sort(s, i + 1, r);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">quick_sort1</span></span>()&#123;</span><br><span class="line">    var s = [1,5,3,7,9,10,51];</span><br><span class="line">    var l = 0;</span><br><span class="line">    var r = 6;</span><br><span class="line">    quick_sort(s, l, r);</span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">quick_sort1();</span><br></pre></td></tr></table></figure>
-
-<h3 id="快速排序和归并的区别就在于它正好和递归的排序反过来。"><a href="#快速排序和归并的区别就在于它正好和递归的排序反过来。" class="headerlink" title="快速排序和归并的区别就在于它正好和递归的排序反过来。"></a>快速排序和归并的区别就在于它正好和递归的排序反过来。</h3><p>快速排序先排序再递归细分，排序是从上到下的。归并排序先递归细分再排序，排序是从下到上的。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/30/快速排序、归并排序详解/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/30/hello-blog/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/30/hello-blog/" class="archive-article-date">
-  	<time datetime="2019-08-30T11:12:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Hello blog</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/30/hello-blog/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -679,8 +340,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

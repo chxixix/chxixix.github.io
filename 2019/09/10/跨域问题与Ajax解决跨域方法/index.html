@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="XINCHEN">
 <meta property="og:description" content="跨域问题跨域这个问题的出现是因为浏览器的同源策略 同源策略限制了一个源的文档或者脚本与另一个源的文档或者脚本进行交互，是一种用于隔离潜在恶意文档的重要安全机制 同源指的是url中的协议、域名、端口三部分相同，只要其中有一个不一样，就会受到跨域限制 但有些请求不受跨域限制，比如：WebSocket, script, img, iframe, video, audio标签的src属性 比如myweb中">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-17T02:51:40.144Z">
+<meta property="og:updated_time" content="2019-09-17T03:00:40.446Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="跨域问题与Ajax解决跨域方法">
 <meta name="twitter:description" content="跨域问题跨域这个问题的出现是因为浏览器的同源策略 同源策略限制了一个源的文档或者脚本与另一个源的文档或者脚本进行交互，是一种用于隔离潜在恶意文档的重要安全机制 同源指的是url中的协议、域名、端口三部分相同，只要其中有一个不一样，就会受到跨域限制 但有些请求不受跨域限制，比如：WebSocket, script, img, iframe, video, audio标签的src属性 比如myweb中">
@@ -178,8 +178,9 @@
 <p>同源策略限制了一个源的文档或者脚本与另一个源的文档或者脚本进行交互，是一种用于隔离潜在恶意文档的重要安全机制</p>
 <p>同源指的是url中的协议、域名、端口三部分相同，只要其中有一个不一样，就会受到跨域限制</p>
 <p>但有些请求不受跨域限制，比如：WebSocket, script, img, iframe, video, audio标签的src属性</p>
-<p>比如myweb中，index页面<a href="http://localhost:3000需要跨域请求thirdparty中的http://localhost:5000这个接口，前端的操作是点击“点击”时控制台输出信息" target="_blank" rel="noopener">http://localhost:3000需要跨域请求thirdparty中的http://localhost:5000这个接口，前端的操作是点击“点击”时控制台输出信息</a></p>
-<p>以下解决方法基于nodejs+express<br>通过点击“点击”实现跨域<br>代码如下</p>
+<p>比如myweb中，index页面localhost:3000需要跨域请求thirdparty中的localhost:5000这个接口，前端的操作是点击“点击”时控制台输出信息</p>
+<p>以下解决方法基于nodejs+express</p>
+<p>通过点击“点击”实现跨域<br>代码如下</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">""</span> value=<span class="string">""</span> id=<span class="string">"name"</span> /&gt;</span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> id=<span class="string">"id"</span> name=<span class="string">""</span> value=<span class="string">""</span> /&gt;</span><br><span class="line">&lt;div class=<span class="string">""</span> id=<span class="string">"submit"</span>&gt;点击&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 
 <h2 id="Ajax解决跨域的三种方案"><a href="#Ajax解决跨域的三种方案" class="headerlink" title="Ajax解决跨域的三种方案"></a>Ajax解决跨域的三种方案</h2><h3 id="使用代理"><a href="#使用代理" class="headerlink" title="使用代理"></a>使用代理</h3><p>不需要第三方服务端进行改造，仍然遵循同源策略，只是将请求移至后端</p>
@@ -195,7 +196,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//第三方的接口</span><br><span class="line">router.post(<span class="string">'/ajax/deal'</span>, <span class="keyword">function</span>(req, res) &#123;</span><br><span class="line">    console.log(<span class="string">"server accept: "</span>, req.body.name, req.body.id);</span><br><span class="line">    var data = &#123;</span><br><span class="line">        name: req.body.name + <span class="string">' - server 5000 process'</span>,</span><br><span class="line">        id: req.body.id + <span class="string">' - server 5000 process'</span></span><br><span class="line">    &#125;;</span><br><span class="line">    res.header(<span class="string">"Access-Control-Allow-Origin"</span>,<span class="string">"http://localhost:3000"</span>);</span><br><span class="line">    // res.header(<span class="string">"Access-Control-Allow-Credentials"</span>,<span class="literal">true</span>);//表情服务器允许包含cookie</span><br><span class="line">    res.send(data);</span><br><span class="line">    res.end()</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <h4 id="优缺点-1"><a href="#优缺点-1" class="headerlink" title="优缺点"></a>优缺点</h4><p>优点<br>1.支持各种请求类型<br>2.只需要简单配置响应头和请求头信息<br>缺点<br>1.如果服务器无法改造则无法实现跨域<br>2.不兼容”古董”浏览器</p>
-<h3 id="jsonp"><a href="#jsonp" class="headerlink" title="jsonp"></a>jsonp</h3><p>根据script标签不接受同源策略，因此将客户端需要的数据写入javascript脚本中返回给客户端</p>
+<h3 id="Jsonp"><a href="#Jsonp" class="headerlink" title="Jsonp"></a>Jsonp</h3><p>根据script标签不接受同源策略，因此将客户端需要的数据写入javascript脚本中返回给客户端</p>
 <h4 id="具体实现方法-2"><a href="#具体实现方法-2" class="headerlink" title="具体实现方法"></a>具体实现方法</h4><p>前端：创建一个回调函数，Ajax本身封装了Jsonp，把请求类型改成GET，dataType改成Jsonp，将回调函数名作为请求的参数<br>后端：用前端传来的回调函数包裹住数据，返回一个脚本文件</p>
 <h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><p>myweb</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> callback(data) &#123;</span><br><span class="line">    console.log(<span class="string">'jsonpCallBack: name'</span>+data.name+<span class="string">' id'</span>+data.id);</span><br><span class="line">&#125;</span><br><span class="line">$(<span class="string">'#submit'</span>).on(<span class="string">'click'</span>,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        var data=&#123;</span><br><span class="line">            name:$(<span class="string">"#name"</span>).val(),</span><br><span class="line">            id:$(<span class="string">"#id"</span>).val()</span><br><span class="line">        &#125;;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">        	jsonp</span><br><span class="line">           url:<span class="string">"http://localhost:5000/ajax/deal"</span>,</span><br><span class="line">//         jsonp只支持GET</span><br><span class="line">           <span class="built_in">type</span>:<span class="string">'get'</span>,</span><br><span class="line">           dataType:<span class="string">'jsonp'</span>,</span><br><span class="line">           data:data,</span><br><span class="line">           jsonpCallback:<span class="string">'callback'</span>,</span><br><span class="line">           jsonp:<span class="string">'callback'</span>,</span><br><span class="line">           success:<span class="keyword">function</span>(data)&#123;</span><br><span class="line">               console.log(<span class="string">'jsonp:ajax success callback name: '</span>+data.name+<span class="string">' id'</span>+data.id)</span><br><span class="line">           &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
@@ -297,6 +298,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/09/13/如何预防XSS攻击/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          如何预防XSS攻击
+        
+      </div>
+    </a>
   
   
     <a href="/2019/09/02/二分查找/" id="article-nav-older" class="article-nav-link-wrap">
